@@ -16,6 +16,7 @@
 
 - 📍&nbsp;&nbsp;[Arduino)](https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE)
 
+<p>
 - setelah app arduino terinstall
 - dan rangkaian sudah jadi
 - selanjutnya buka aplikasi arduino
@@ -24,6 +25,7 @@
     - dan cari LiquidCrystal I2C kemudian instal.
 - setelah terinstall kemudian copy code yang ada di file deteksi_kebisingan.ino ke dalam teks editor arduinonya
 - langkah terakhir jalankan atau upload
+</p>
 
 ## PENJELASAN ALUR ==============================
 <strong>CARA KERJA ALAT</strong>
@@ -37,12 +39,15 @@
 #define ISD_PIN 3            // Data ISD1820
 #define SPEAKER_PIN 8        // Pin untuk speaker tambahan
 ```
-Wire.h: Library untuk komunikasi I2C.
-LiquidCrystal_I2C.h: Library untuk mengontrol LCD dengan modul I2C.
-Pin Definitions:
-SENSOR_PIN A0: Pin analog untuk membaca data sensor suara.
-ISD_PIN 3: Pin digital untuk mengontrol modul ISD1820 (modul perekam & pemutar suara).
-SPEAKER_PIN 8: Pin digital untuk speaker/buzzer tambahan.
+<p>
+    Wire.h: Library untuk komunikasi I2C.
+    LiquidCrystal_I2C.h: Library untuk mengontrol LCD dengan modul I2C.
+    Pin Definitions:
+    SENSOR_PIN A0: Pin analog untuk membaca data sensor suara.
+    ISD_PIN 3: Pin digital untuk mengontrol modul ISD1820 (modul perekam & pemutar suara).
+    SPEAKER_PIN 8: Pin digital untuk speaker/buzzer tambahan.
+</p>
+
 --------------------------------------------------
 2. Variabel Global
 ```
@@ -52,7 +57,9 @@ const int threshold = 44.40;  // Ambang batas suara keras
 String peringatan1 = "RIBUT! "; // Pesan LCD baris 1
 String peringatan2 = "ANDA BISA DIAM!"; // Pesan LCD baris 2
 ```
+<p>
 threshold: Jika nilai sensor melebihi ini, sistem menganggap suara terlalu keras.
+</p>
 --------------------------------------------------
 3. Fungsi setup()
 ```
@@ -73,9 +80,11 @@ void setup() {
   digitalWrite(SPEAKER_PIN, LOW); // Matikan speaker
 }
 ```
+<p>
 Serial Monitor: Digunakan untuk debugging/monitoring nilai sensor.
 LCD: Menampilkan pesan awal saat sistem mulai.
 Pin Mode: Konfigurasi pin sebagai output.
+</p>
 --------------------------------------------------
 4. Pembaca sensor
 ```
@@ -87,7 +96,9 @@ for (int i = 0; i < 10; i++) {
 }
 averageValue /= 10;  // Hitung rata-rata
 ```
+<p>
 Mengambil 10 sampel dari sensor suara dan menghitung rata-ratanya untuk mengurangi noise.
+</p>
 --------------------------------------------------
 5. Deteksi Suara
 ```
@@ -112,11 +123,13 @@ if (averageValue > threshold) {
   lcd.clear();   // Bersihkan LCD
 }
 ```
+<p>
 Jika suara melebihi threshold:
 Tampilkan pesan "RIBUT! ANDA BISA DIAM!" di LCD.
 Trigger modul ISD1820 (misalnya memutar rekaman peringatan).
 Bunyikan speaker/buzzer dengan frekuensi 1 kHz selama 1 detik.
 Beri jeda 15 detik sebelum deteksi berikutnya.
+</p>
 ------------------------------------------------------
 6. kondisi normal
 ```
@@ -133,7 +146,7 @@ else {
   lcd.clear();
 }
 ```
-Jika suara di bawah threshold, tampilkan "Status: Normal" di LCD.
+<p>Jika suara di bawah threshold, tampilkan "Status: Normal" di LCD.</p>
 ------------------------------------------------------
 7. Delay Antar Pembacaan
 ```delay(100);  // Jeda antar pembacaan```

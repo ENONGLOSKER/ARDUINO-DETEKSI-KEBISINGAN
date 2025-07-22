@@ -58,9 +58,10 @@ String peringatan1 = "RIBUT! "; // Pesan LCD baris 1
 String peringatan2 = "ANDA BISA DIAM!"; // Pesan LCD baris 2
 ```
 <p>
-threshold: Jika nilai sensor melebihi ini, sistem menganggap suara terlalu keras.
+    threshold: Jika nilai sensor melebihi ini, sistem menganggap suara terlalu keras.
 </p>
 --------------------------------------------------
+<br>
 3. Fungsi setup()
 ```
 void setup() {
@@ -80,12 +81,14 @@ void setup() {
   digitalWrite(SPEAKER_PIN, LOW); // Matikan speaker
 }
 ```
+
 <p>
-Serial Monitor: Digunakan untuk debugging/monitoring nilai sensor.
-LCD: Menampilkan pesan awal saat sistem mulai.
-Pin Mode: Konfigurasi pin sebagai output.
+    Serial Monitor: Digunakan untuk debugging/monitoring nilai sensor.
+    LCD: Menampilkan pesan awal saat sistem mulai.
+    Pin Mode: Konfigurasi pin sebagai output.
 </p>
 --------------------------------------------------
+<br>
 4. Pembaca sensor
 ```
 averageValue = 0;
@@ -96,10 +99,12 @@ for (int i = 0; i < 10; i++) {
 }
 averageValue /= 10;  // Hitung rata-rata
 ```
+
 <p>
-Mengambil 10 sampel dari sensor suara dan menghitung rata-ratanya untuk mengurangi noise.
+    Mengambil 10 sampel dari sensor suara dan menghitung rata-ratanya untuk mengurangi noise.
 </p>
 --------------------------------------------------
+<br>
 5. Deteksi Suara
 ```
 if (averageValue > threshold) {
@@ -124,13 +129,14 @@ if (averageValue > threshold) {
 }
 ```
 <p>
-Jika suara melebihi threshold:
-Tampilkan pesan "RIBUT! ANDA BISA DIAM!" di LCD.
-Trigger modul ISD1820 (misalnya memutar rekaman peringatan).
-Bunyikan speaker/buzzer dengan frekuensi 1 kHz selama 1 detik.
-Beri jeda 15 detik sebelum deteksi berikutnya.
+    Jika suara melebihi threshold:
+    Tampilkan pesan "RIBUT! ANDA BISA DIAM!" di LCD.
+    Trigger modul ISD1820 (misalnya memutar rekaman peringatan).
+    Bunyikan speaker/buzzer dengan frekuensi 1 kHz selama 1 detik.
+    Beri jeda 15 detik sebelum deteksi berikutnya.
 </p>
 ------------------------------------------------------
+<br>
 6. kondisi normal
 ```
 else {
@@ -148,7 +154,9 @@ else {
 ```
 <p>Jika suara di bawah threshold, tampilkan "Status: Normal" di LCD.</p>
 ------------------------------------------------------
+<br>
 7. Delay Antar Pembacaan
+
 ```delay(100);  // Jeda antar pembacaan```
 
 

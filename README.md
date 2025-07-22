@@ -3,6 +3,7 @@
     <p>Deteksi Kebisingan</p>
     <h1>Alat Deteksi Kebisingan Pada Perpustakaan</h1>
     <span>✨⭐⭐⭐✨</span>
+    <br>
     <span>Sistem ini mendeteksi suara menggunakan sensor analog di A0. Jika suara melebihi 44.40, sistem akan: Menampilkan pesan peringatan di LCD. Mengaktifkan modul suara (ISD1820). Membunyikan buzzer/speaker. Jika suara normal, LCD menampilkan "Status: Normal".</span>
     <hr>
     <p>Desain rancagan</p>

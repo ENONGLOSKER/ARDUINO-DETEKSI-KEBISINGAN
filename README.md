@@ -63,6 +63,7 @@ String peringatan2 = "ANDA BISA DIAM!"; // Pesan LCD baris 2
 --------------------------------------------------
 <br>
 3. Fungsi setup()
+<br>
 ```
 void setup() {
   Serial.begin(9600);  // Mulai komunikasi serial
@@ -90,6 +91,7 @@ void setup() {
 --------------------------------------------------
 <br>
 4. Pembaca sensor
+<br>
 ```
 averageValue = 0;
 for (int i = 0; i < 10; i++) {
@@ -106,6 +108,7 @@ averageValue /= 10;  // Hitung rata-rata
 --------------------------------------------------
 <br>
 5. Deteksi Suara
+<br>
 ```
 if (averageValue > threshold) {
   Serial.println(" - Suara keras terdeteksi!");
@@ -138,6 +141,7 @@ if (averageValue > threshold) {
 ------------------------------------------------------
 <br>
 6. kondisi normal
+<br>
 ```
 else {
   Serial.println(" - Kondisi normal");
@@ -156,7 +160,7 @@ else {
 ------------------------------------------------------
 <br>
 7. Delay Antar Pembacaan
-
+<br>
 ```delay(100);  // Jeda antar pembacaan```
 
 
